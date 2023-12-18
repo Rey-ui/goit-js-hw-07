@@ -29,9 +29,9 @@ const images = [
     },
 ];
 const galleryList = document.querySelector(".gallery");
-const imagesItems = images.forEach(image => {
-    galleryList.insertAdjacentHTML("afterbegin", `<li><img src = ${image.url} alt = ${image.alt}></li>`);
-});
+const imagesItems = images.map(image => `<li><img src="${image.url}" alt="${image.alt}"></li>`).join('');
+galleryList.innerHTML = imagesItems;
+
 galleryList.style.display = "flex";
 const imagesElements = galleryList.querySelectorAll('img');
 imagesElements.forEach(img => {
